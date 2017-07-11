@@ -40,7 +40,9 @@ private:
 	long numSuppCard;
 	long numExtCard;
 	long numCard;
-	std::vector<std::vector<double>> thePoints;
+	int numberOfObjectives;
+
+	std::string pointToString ( std::vector<double>& thePoint, std::string& type, std::vector<std::string>& objNames);
 public:
 	/*
 	 * \brief Constructor with no arguments
@@ -52,15 +54,42 @@ public:
 	bool createResultsFile (const std::string& outputFile, const std::string& inputFile = "" );
 
 
-	/*
-	 * \brief Sets the name of the contribution.
-	 *
-	 * Sets the contribution name. It should be a string with the name of the contribution in which the instances and results have been published.
-	 * \param constName const reference to a string. Contains the name of the constribution, e.g. "Pedersen08".
-	 */
-	inline void setContributionName ( const std::string& contName ) { contributionName = "\"contributionName\": \"" + contName + "\",\n"; }
-	inline void printContributionName ( ) { std::cout << contributionName;  }
+	inline void setVersion ( const std::string& versionNumber ) { version = "\t\"version\": \"" + versionNumber + "\",\n";}
 
-	inline void setObjectives ( int numOfObjectives ) { objectives = "\"objectives\": \"" + std::to_string(numOfObjectives) +"\",\n"; }
+	inline void setInstanceName ( std::string& theInstanceName ) { instanceName = "\t\"instanceName\": \"" + theInstanceName +"\",\n"; }
+
+	/*
+	* \brief Sets the name of the contribution.
+	*
+	* Sets the contribution name. It should be a string with the name of the contribution in which the instances and results have been published.
+	* \param constName const reference to a string. Contains the name of the constribution, e.g. "Pedersen08".
+	*/
+	inline void setContributionName ( const std::string& contName ) { contributionName = "\t\"contributionName\": \"" + contName + "\",\n"; }
+	inline void printContributionName ( ) { std::cout << contributionName; }
+
+	
+	inline void setObjectives ( int numOfObjectives ) { objectives = "\t\"objectives\": " + std::to_string ( numOfObjectives ) + ",\n"; numberOfObjectives = numOfObjectives; }
 	inline void printObjectives ( ) { std::cout << objectives; }
+
+	/*
+	 * \brief Sets the objective types
+	 *
+	 * Sets the objective types to either int, float, or null (if unknown). 
+	 * \param objTypes vector of strings containing the type of each objective. That is if the i'th objective is integral, then objType[i] = "int"
+	 * \note The function setObjectives must be called before setObjectiveTypes. Otherwise a runtime error is thrown.
+	 */
+	void setObjectiveTypes ( std::vector<std::string>& objTypes );
+
+	void setDirections ( std::vector<std::string>& theDirections );
+
+	inline void setOptimal ( bool itsOptimal ) { if ( itsOptimal ) optimal = "\t\"optimal\": true,\n"; else optimal = "\t\"optimal\": false,\n"; }
+
+	inline void setCardinality ( int theCardinality ) { numCard = theCardinality; cardinality = "\t\"card\": " + std::to_string ( theCardinality ) + ",\n"; }
+
+	/*
+	 * Sets the points and the point types
+	 */
+	void setPoints ( std::vector<std::vector<double>>& thePoints, std::vector<std::string>& pointTypes );
+
+	inline void setValidity ( bool isValid ) { if ( isValid ) valid = "\t\"valid\": true,\n"; else valid = "\t\"valid\": false,\n"; }
 };

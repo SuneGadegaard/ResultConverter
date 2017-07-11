@@ -1,0 +1,22 @@
+{
+	"version": "1.0",
+	"instanceName": "slg",
+	"contributionName": "Pedersen08",
+	"objectives": 2,
+	"objectiveType": ["int", "int"],
+	"objectiveType": ["min", "min"],
+	"optimal": true,
+	"card": 2,
+	"points": [
+		{
+			"z1": : 1.000000,
+			"z2": : 1.000000,
+			"type": "null",
+		},
+		{
+			"z1": : 2.000000,
+			"z2": : 2.000000,
+			"type": "null",
+		}
+	]
+ }
