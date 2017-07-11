@@ -1,8 +1,12 @@
 #include<iostream>
+#include"converter.h"
 
 int main ( )
 {
-	std::cout << "Hello world\n";
-	std::cout << "Hello again\n";
+	converter conv = converter ( );
+	conv.setContributionName ( "Pedersen08" );
+	conv.printContributionName ( );
+	conv.setObjectives ( 2 );
+	conv.printObjectives ( );
 	return 0;
 }
