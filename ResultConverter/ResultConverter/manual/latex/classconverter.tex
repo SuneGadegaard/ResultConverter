@@ -1,0 +1,263 @@
+\hypertarget{classconverter}{}\section{converter Class Reference}
+\label{classconverter}\index{converter@{converter}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{classconverter_aa3042d649da8ea07f914b7eea5014703}{create\+Results\+File} (const std\+::string \&output\+File, const std\+::string \&input\+File=\char`\"{}\char`\"{})
+\begin{DoxyCompactList}\small\item\em Creates a results file. \end{DoxyCompactList}\item 
+void \hyperlink{classconverter_a825aad7cfc1aabfbef527d064a6edf1e}{set\+Version} (const std\+::string \&version\+Number)
+\begin{DoxyCompactList}\small\item\em Set the version of the resultfile. \end{DoxyCompactList}\item 
+void \hyperlink{classconverter_a6ccb23d7caebaba593b02f37689a382f}{set\+Instance\+Name} (std\+::string \&the\+Instance\+Name)
+\item 
+void \hyperlink{classconverter_a848a8e67f350303fc2d89a2be74a4c6d}{set\+Contribution\+Name} (const std\+::string \&cont\+Name)
+\begin{DoxyCompactList}\small\item\em Sets the name of the contribution. \end{DoxyCompactList}\item 
+void \hyperlink{classconverter_a8b216dcddabf7fba23797689befa88d8}{set\+Objectives} (int num\+Of\+Objectives)
+\item 
+void \hyperlink{classconverter_a44373216fde05163ca7c5267088145fa}{set\+Objective\+Types} (std\+::vector$<$ std\+::string $>$ \&obj\+Types)
+\begin{DoxyCompactList}\small\item\em Sets the objective types. \end{DoxyCompactList}\item 
+void \hyperlink{classconverter_aef8cb59efa0d7a9c34c83b5701658d8b}{set\+Directions} (std\+::vector$<$ std\+::string $>$ \&the\+Directions)
+\begin{DoxyCompactList}\small\item\em Sets the directions of the objective functions. \end{DoxyCompactList}\item 
+void \hyperlink{classconverter_a6d1331eb4b80868ff8d8251cea497a82}{set\+Optimal} (bool its\+Optimal)
+\item 
+void \hyperlink{classconverter_a8897d824355a5fc576c288689edfb97e}{set\+Cardinality} (int the\+Cardinality)
+\item 
+void \hyperlink{classconverter_a9d39c373dd13b46914dba0848b152202}{set\+Points} (std\+::vector$<$ std\+::vector$<$ double $>$$>$ \&the\+Points, std\+::vector$<$ std\+::string $>$ \&point\+Types)
+\item 
+void \hyperlink{classconverter_a84384742ccd6d989c0e3f0fa6e3cbfa0}{set\+Validity} (bool is\+Valid)
+\begin{DoxyCompactList}\small\item\em Sets the validity of the solution to either true or false. \end{DoxyCompactList}\item 
+void \hyperlink{classconverter_aebeb33eb063aaba00a0bedbbd29d97c6}{set\+Comments} (std\+::string \&comment)
+\item 
+void \hyperlink{classconverter_a3efdbf4704ecaa181f0c70f4ed80ce38}{set\+C\+PU} (double execution\+Time, std\+::string \&machine\+Specs)
+\item 
+void \hyperlink{classconverter_aac7ed61410e4f16aed940e845e23cea7}{set\+Extreme\+Cardinality} (int extreme\+Cardinality)
+\item 
+void \hyperlink{classconverter_a6a9303c575455682facf0e28327f1a4b}{set\+Supported\+Cardinality} (int supported\+Cardinality)
+\item 
+void \hyperlink{classconverter_ab797244665254fdce6075082358594fd}{set\+Misc} (std\+::string \&the\+M\+I\+SC)
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classconverter_aa3042d649da8ea07f914b7eea5014703}\label{classconverter_aa3042d649da8ea07f914b7eea5014703}} 
+\index{converter@{converter}!create\+Results\+File@{create\+Results\+File}}
+\index{create\+Results\+File@{create\+Results\+File}!converter@{converter}}
+\subsubsection{\texorpdfstring{create\+Results\+File()}{createResultsFile()}}
+{\footnotesize\ttfamily bool converter\+::create\+Results\+File (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{output\+File,  }\item[{const std\+::string \&}]{input\+File = {\ttfamily \char`\"{}\char`\"{}} }\end{DoxyParamCaption})}
+
+
+
+Creates a results file. 
+
+Creates a results file with the path \char`\"{}output\+File\char`\"{}. The file is only created if all the required entries has been set using the set\+Methods. 
+\begin{DoxyParams}{Parameters}
+{\em output\+File} & reference to a constant string. output\+File contains the path to the results file. If no file with that path exists a new file is created. If the file exists, it will be overwritten! \\
+\hline
+{\em input\+File} & reference to a constant string. input\+File contains the path to the file you want to read from (this functionality is not yet implemented). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+If the putput file is succesfully created the function returns true, otherwise false (an exception/runtime error will be thrown) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classconverter_a8897d824355a5fc576c288689edfb97e}\label{classconverter_a8897d824355a5fc576c288689edfb97e}} 
+\index{converter@{converter}!set\+Cardinality@{set\+Cardinality}}
+\index{set\+Cardinality@{set\+Cardinality}!converter@{converter}}
+\subsubsection{\texorpdfstring{set\+Cardinality()}{setCardinality()}}
+{\footnotesize\ttfamily void converter\+::set\+Cardinality (\begin{DoxyParamCaption}\item[{int}]{the\+Cardinality }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Sets the cardinality of the non--dominated frontier 
+\begin{DoxyParams}{Parameters}
+{\em the\+Cardinality} & integer specifying the number of points on the efficient frontier. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classconverter_aebeb33eb063aaba00a0bedbbd29d97c6}\label{classconverter_aebeb33eb063aaba00a0bedbbd29d97c6}} 
+\index{converter@{converter}!set\+Comments@{set\+Comments}}
+\index{set\+Comments@{set\+Comments}!converter@{converter}}
+\subsubsection{\texorpdfstring{set\+Comments()}{setComments()}}
+{\footnotesize\ttfamily void converter\+::set\+Comments (\begin{DoxyParamCaption}\item[{std\+::string \&}]{comment }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Sets the comments entry 
+\begin{DoxyParams}{Parameters}
+{\em comment} & reference to a string. Contains the comment that should be attached to the result file. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classconverter_a848a8e67f350303fc2d89a2be74a4c6d}\label{classconverter_a848a8e67f350303fc2d89a2be74a4c6d}} 
+\index{converter@{converter}!set\+Contribution\+Name@{set\+Contribution\+Name}}
+\index{set\+Contribution\+Name@{set\+Contribution\+Name}!converter@{converter}}
+\subsubsection{\texorpdfstring{set\+Contribution\+Name()}{setContributionName()}}
+{\footnotesize\ttfamily void converter\+::set\+Contribution\+Name (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{cont\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets the name of the contribution. 
+
+Sets the contribution name. It should be a string with the name of the contribution in which the instances and results have been published. 
+\begin{DoxyParams}{Parameters}
+{\em const\+Name} & const reference to a string. Contains the name of the constribution, e.\+g. \char`\"{}\+Pedersen08\char`\"{}. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classconverter_a3efdbf4704ecaa181f0c70f4ed80ce38}\label{classconverter_a3efdbf4704ecaa181f0c70f4ed80ce38}} 
+\index{converter@{converter}!set\+C\+PU@{set\+C\+PU}}
+\index{set\+C\+PU@{set\+C\+PU}!converter@{converter}}
+\subsubsection{\texorpdfstring{set\+C\+P\+U()}{setCPU()}}
+{\footnotesize\ttfamily void converter\+::set\+C\+PU (\begin{DoxyParamCaption}\item[{double}]{execution\+Time,  }\item[{std\+::string \&}]{machine\+Specs }\end{DoxyParamCaption})}
+
+Sets the C\+PU information along with the specs of the machine the experiments was carried out on. 
+\begin{DoxyParams}{Parameters}
+{\em execution\+Time} & double containing the number of seconds used to compute the efficient frontier \\
+\hline
+{\em machine\+Specs} & reference to a string containing the specifics of the machine used to carry out the experiments, e.\+g. \char`\"{}\+Intel Core i7-\/4785\+T 2.\+2 G\+Hz, 16 G\+B R\+A\+M, Linux Ubuntu 64bit\char`\"{} \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classconverter_aef8cb59efa0d7a9c34c83b5701658d8b}\label{classconverter_aef8cb59efa0d7a9c34c83b5701658d8b}} 
+\index{converter@{converter}!set\+Directions@{set\+Directions}}
+\index{set\+Directions@{set\+Directions}!converter@{converter}}
+\subsubsection{\texorpdfstring{set\+Directions()}{setDirections()}}
+{\footnotesize\ttfamily void converter\+::set\+Directions (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::string $>$ \&}]{the\+Directions }\end{DoxyParamCaption})}
+
+
+
+Sets the directions of the objective functions. 
+
+Sets the directions of the objective functions. The directions can either be \char`\"{}min\char`\"{} or \char`\"{}max\char`\"{}. 
+\begin{DoxyParams}{Parameters}
+{\em the\+Directions} & reference to a vector of strings. If forexample there are three objective functions where the two first are of the minimization-\/kind and the last is a maximization, we should specify a vector \{ \char`\"{}min\char`\"{} , \char`\"{}min\char`\"{} , \char`\"{}max\char`\"{} \} as the function argument. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classconverter_aac7ed61410e4f16aed940e845e23cea7}\label{classconverter_aac7ed61410e4f16aed940e845e23cea7}} 
+\index{converter@{converter}!set\+Extreme\+Cardinality@{set\+Extreme\+Cardinality}}
+\index{set\+Extreme\+Cardinality@{set\+Extreme\+Cardinality}!converter@{converter}}
+\subsubsection{\texorpdfstring{set\+Extreme\+Cardinality()}{setExtremeCardinality()}}
+{\footnotesize\ttfamily void converter\+::set\+Extreme\+Cardinality (\begin{DoxyParamCaption}\item[{int}]{extreme\+Cardinality }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Sets the cardinality of the set of extreme supported non--dominated solutions 
+\begin{DoxyParams}{Parameters}
+{\em extreme\+Cardinality} & integer containing the number of extreme supported non--dominated solutions. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classconverter_a6ccb23d7caebaba593b02f37689a382f}\label{classconverter_a6ccb23d7caebaba593b02f37689a382f}} 
+\index{converter@{converter}!set\+Instance\+Name@{set\+Instance\+Name}}
+\index{set\+Instance\+Name@{set\+Instance\+Name}!converter@{converter}}
+\subsubsection{\texorpdfstring{set\+Instance\+Name()}{setInstanceName()}}
+{\footnotesize\ttfamily void converter\+::set\+Instance\+Name (\begin{DoxyParamCaption}\item[{std\+::string \&}]{the\+Instance\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Set the name of the instance for which the result file contains information 
+\begin{DoxyParams}{Parameters}
+{\em the\+Instance\+Name} & reference to a string containing the name of the instance for which the results are for. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classconverter_ab797244665254fdce6075082358594fd}\label{classconverter_ab797244665254fdce6075082358594fd}} 
+\index{converter@{converter}!set\+Misc@{set\+Misc}}
+\index{set\+Misc@{set\+Misc}!converter@{converter}}
+\subsubsection{\texorpdfstring{set\+Misc()}{setMisc()}}
+{\footnotesize\ttfamily void converter\+::set\+Misc (\begin{DoxyParamCaption}\item[{std\+::string \&}]{the\+M\+I\+SC }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Sets the misc entry 
+\begin{DoxyParams}{Parameters}
+{\em the\+M\+I\+SC} & reference to a string containing the misc that should be attached to the result file \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+This entry may be used as you like. It could e.\+g. contain an object with more detailed entries about the experiment. 
+\end{DoxyNote}
+\mbox{\Hypertarget{classconverter_a8b216dcddabf7fba23797689befa88d8}\label{classconverter_a8b216dcddabf7fba23797689befa88d8}} 
+\index{converter@{converter}!set\+Objectives@{set\+Objectives}}
+\index{set\+Objectives@{set\+Objectives}!converter@{converter}}
+\subsubsection{\texorpdfstring{set\+Objectives()}{setObjectives()}}
+{\footnotesize\ttfamily void converter\+::set\+Objectives (\begin{DoxyParamCaption}\item[{int}]{num\+Of\+Objectives }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Sets the number of objectives 
+\begin{DoxyParams}{Parameters}
+{\em num\+Of\+Objectives} & integer specififying the number of objective functions of the multiobjective optimization problem. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classconverter_a44373216fde05163ca7c5267088145fa}\label{classconverter_a44373216fde05163ca7c5267088145fa}} 
+\index{converter@{converter}!set\+Objective\+Types@{set\+Objective\+Types}}
+\index{set\+Objective\+Types@{set\+Objective\+Types}!converter@{converter}}
+\subsubsection{\texorpdfstring{set\+Objective\+Types()}{setObjectiveTypes()}}
+{\footnotesize\ttfamily void converter\+::set\+Objective\+Types (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::string $>$ \&}]{obj\+Types }\end{DoxyParamCaption})}
+
+
+
+Sets the objective types. 
+
+Sets the objective types to either int, float, or null (if unknown). 
+\begin{DoxyParams}{Parameters}
+{\em obj\+Types} & vector of strings containing the type of each objective. That is if the i\textquotesingle{}th objective is integral, then obj\+Type\mbox{[}i\mbox{]} = \char`\"{}int\char`\"{} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+The function set\+Objectives must be called before set\+Objective\+Types. Otherwise a runtime error is thrown. 
+\end{DoxyNote}
+\mbox{\Hypertarget{classconverter_a6d1331eb4b80868ff8d8251cea497a82}\label{classconverter_a6d1331eb4b80868ff8d8251cea497a82}} 
+\index{converter@{converter}!set\+Optimal@{set\+Optimal}}
+\index{set\+Optimal@{set\+Optimal}!converter@{converter}}
+\subsubsection{\texorpdfstring{set\+Optimal()}{setOptimal()}}
+{\footnotesize\ttfamily void converter\+::set\+Optimal (\begin{DoxyParamCaption}\item[{bool}]{its\+Optimal }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Specifies whether the solution is an optimal solution to the specific instance or not. 
+\begin{DoxyParams}{Parameters}
+{\em its\+Optimal} & boolean. If its\+Optimal = true, it is assumed that the solutions is optimal solution, and if its\+Optimal = false, it has not been verified optimal, or it is known to be suboptimal \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classconverter_a9d39c373dd13b46914dba0848b152202}\label{classconverter_a9d39c373dd13b46914dba0848b152202}} 
+\index{converter@{converter}!set\+Points@{set\+Points}}
+\index{set\+Points@{set\+Points}!converter@{converter}}
+\subsubsection{\texorpdfstring{set\+Points()}{setPoints()}}
+{\footnotesize\ttfamily void converter\+::set\+Points (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::vector$<$ double $>$$>$ \&}]{the\+Points,  }\item[{std\+::vector$<$ std\+::string $>$ \&}]{point\+Types }\end{DoxyParamCaption})}
+
+Sets the points and the point types
+
+
+\begin{DoxyParams}{Parameters}
+{\em the\+Points} & reference to a vector of vectors of doubles. the\+Points\mbox{[}i\mbox{]} contains the i\textquotesingle{}th point on the frontier and the\+Points\mbox{[}i\mbox{]}\mbox{[}j\mbox{]} contains the j\textquotesingle{}th entry of the i\textquotesingle{}th non--dominated point. \\
+\hline
+{\em point\+Types} & reference to a vector of strings. Contains a specification of the type of each point. type can be either extreme supported (\char`\"{}se\char`\"{}), non-\/extreme supported (\char`\"{}sne\char`\"{}), supported (my be extreme or non--extreme) (\char`\"{}s\char`\"{}), unsuported (\char`\"{}un\char`\"{}) or if this information is unknown (\char`\"{}null\char`\"{}). \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classconverter_a6a9303c575455682facf0e28327f1a4b}\label{classconverter_a6a9303c575455682facf0e28327f1a4b}} 
+\index{converter@{converter}!set\+Supported\+Cardinality@{set\+Supported\+Cardinality}}
+\index{set\+Supported\+Cardinality@{set\+Supported\+Cardinality}!converter@{converter}}
+\subsubsection{\texorpdfstring{set\+Supported\+Cardinality()}{setSupportedCardinality()}}
+{\footnotesize\ttfamily void converter\+::set\+Supported\+Cardinality (\begin{DoxyParamCaption}\item[{int}]{supported\+Cardinality }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Sets the cardinality of the set of supported non--dominated solutions 
+\begin{DoxyParams}{Parameters}
+{\em supported\+Cardinality} & integer containing the number of supported non--dominated solutions. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classconverter_a84384742ccd6d989c0e3f0fa6e3cbfa0}\label{classconverter_a84384742ccd6d989c0e3f0fa6e3cbfa0}} 
+\index{converter@{converter}!set\+Validity@{set\+Validity}}
+\index{set\+Validity@{set\+Validity}!converter@{converter}}
+\subsubsection{\texorpdfstring{set\+Validity()}{setValidity()}}
+{\footnotesize\ttfamily void converter\+::set\+Validity (\begin{DoxyParamCaption}\item[{bool}]{is\+Valid }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets the validity of the solution to either true or false. 
+
+Sets the validity of the solution to either true or false. If is\+Valid is false, the solution might be in conflict with another solution on M\+Orepo. This will be sorted out eventually 
+\begin{DoxyParams}{Parameters}
+{\em is\+Valid} & boolean. If true, the solution is not in conflict with other known solutions. If false, it is in conflict with a known solution. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classconverter_a825aad7cfc1aabfbef527d064a6edf1e}\label{classconverter_a825aad7cfc1aabfbef527d064a6edf1e}} 
+\index{converter@{converter}!set\+Version@{set\+Version}}
+\index{set\+Version@{set\+Version}!converter@{converter}}
+\subsubsection{\texorpdfstring{set\+Version()}{setVersion()}}
+{\footnotesize\ttfamily void converter\+::set\+Version (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{version\+Number }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Set the version of the resultfile. 
+
+Sets the version fo the results file using the provided string 
+\begin{DoxyParams}{Parameters}
+{\em version\+Number} & reference to a constant string. If the version is 5.\+4 the input should be a string \char`\"{}5.\+4\char`\"{} \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+converter.\+h\item 
+converter.\+cpp\end{DoxyCompactItemize}

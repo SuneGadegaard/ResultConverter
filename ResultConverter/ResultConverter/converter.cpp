@@ -2,30 +2,22 @@
 
 converter::converter ( ):
 	version ( "\t\"version\": \"1.0\",\n" ),
-	instanceName ( " " ),
-	contributionName ( " " ),
-	objectives ( " " ),
-	objectiveType ( " " ),
-	direction ( " " ),
-	optimal ( " " ),
-	cardinality ( " " ),
-	points ( " " ),
-	valid ( " " ),
-	comments ( " " ),
-	suppCard ( " " ),
-	extCard ( " " ),
-	cpu ( " " ),
-	machineSpec ( " " ),
-	misc ( " " )
+	instanceName ( "" ),
+	contributionName ( "" ),
+	objectives ( "" ),
+	objectiveType ( "" ),
+	direction ( "" ),
+	optimal ( "" ),
+	cardinality ( "" ),
+	points ( "" ),
+	valid ( "" ),
+	comments ( "" ),
+	suppCard ( "" ),
+	extCard ( "" ),
+	cpu ( "" ),
+	machineSpec ( "" ),
+	misc ( "" )
 {
-	try
-	{
-
-	}
-	catch ( std::exception &e )
-	{
-		std::cerr << "Exception in constructor of converter class : " << e.what ( ) << std::endl;
-	}
 }
 
 
@@ -49,7 +41,7 @@ bool converter::createResultsFile ( const std::string& inputFile, const std::str
 
 			// Now that we know that all required fields are there, we can start creating the file
 			// Start by opening the output file
-			outputStream.open ( "./results.dat", std::ofstream::out );
+			outputStream.open ( inputFile , std::ofstream::out );
 
 			// If the stream is not working correctly, throw a runtime error
 			if ( !outputStream )
@@ -67,19 +59,28 @@ bool converter::createResultsFile ( const std::string& inputFile, const std::str
 				<< optimal
 				<< cardinality
 				<< points
-				<< valid
-				<< "}";
+				<< valid;
+			if ( !comments.empty ( ) ) outputStream << comments;
+			if ( !cpu.empty ( ) ) outputStream << cpu;
+			outputStream << "}";
 
-
+			outputStream.close ( );
+			return true;
+		}
+		else
+		{
+			// Go on an implement this yourself
 		}
 	}
 	catch ( std::runtime_error &re )
 	{
 		std::cerr << "Runtime error in createResultsFile in the converter class : " << re.what ( ) << std::endl;
+		return false;
 	}
 	catch ( std::exception &e )
 	{
 		std::cerr << "Exception in createResultsFile in the converter class : " << e.what ( ) << std::endl;
+		return false;
 	}
 }
 
@@ -186,7 +187,7 @@ void converter::setPoints ( std::vector<std::vector<double>>& thePoints, std::ve
 		else points += ",\n";
 	}
 
-	points += "\t]\n";
+	points += "\t],\n";
 }
 
 /*********************************************************************************************************/
@@ -215,5 +216,22 @@ std::string converter::pointToString ( std::vector<double>& thePoint, std::strin
 	catch ( std::exception& e )
 	{
 		std::cerr << "Exception error in pointString in the converter class : " << e.what ( ) << std::endl;
+	}
+}
+
+/*********************************************************************************************************/
+void converter::setCPU ( double executionTime , std::string& machineSpecs)
+{
+	try
+	{
+		machineSpec = machineSpecs;
+		cpu = "\t\"cpu\": {\n";
+		cpu += "\t\t\"sec\": " + std::to_string ( executionTime ) + ",\n";
+		cpu += "\t\t\"machineSpec\": \"" + machineSpec + "\"\n\t},\n";
+
+	}
+	catch ( std::exception& e )
+	{
+		std::cerr << "Exception error in setCPU in the converter class : " << e.what ( ) << std::endl;
 	}
 }

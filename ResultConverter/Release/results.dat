@@ -1,22 +1,39 @@
 {
 	"version": "1.0",
-	"instanceName": "slg",
-	"contributionName": "Pedersen08",
+	"instanceName": "Gadegaard16_SSCFLP_Diaz_p01_0.raw",
+	"contributionName": "Gadegaard16",
 	"objectives": 2,
 	"objectiveType": ["int", "int"],
 	"objectiveType": ["min", "min"],
 	"optimal": true,
-	"card": 2,
+	"card": 5,
 	"points": [
 		{
-			"z1": : 1.000000,
-			"z2": : 1.000000,
+			"z1": : 2014.000000,
+			"z2": : 82.000000,
 			"type": "null",
 		},
 		{
-			"z1": : 2.000000,
-			"z2": : 2.000000,
+			"z1": : 2021.000000,
+			"z2": : 62.000000,
+			"type": "null",
+		},
+		{
+			"z1": : 2034.000000,
+			"z2": : 34.000000,
+			"type": "null",
+		},
+		{
+			"z1": : 2036.000000,
+			"z2": : 28.000000,
+			"type": "null",
+		},
+		{
+			"z1": : 2091.000000,
+			"z2": : 26.000000,
 			"type": "null",
 		}
-	]
- }
+	],
+	"valid": true,
+	"comments": "Results from the paper 'A bi-objective approach to discrete cost-bottleneck location problems' by Gadegaard, Klose, Nielsen, Annals of Operations Research, 2016.",
+}

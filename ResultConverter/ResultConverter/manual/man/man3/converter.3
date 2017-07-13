@@ -1,0 +1,249 @@
+.TH "converter" 3 "Thu Jul 13 2017" "Version 1.0" "MOrepo converter" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+converter
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "bool \fBcreateResultsFile\fP (const std::string &outputFile, const std::string &inputFile='')"
+.br
+.RI "Creates a results file\&. "
+.ti -1c
+.RI "void \fBsetVersion\fP (const std::string &versionNumber)"
+.br
+.RI "Set the version of the resultfile\&. "
+.ti -1c
+.RI "void \fBsetInstanceName\fP (std::string &theInstanceName)"
+.br
+.ti -1c
+.RI "void \fBsetContributionName\fP (const std::string &contName)"
+.br
+.RI "Sets the name of the contribution\&. "
+.ti -1c
+.RI "void \fBsetObjectives\fP (int numOfObjectives)"
+.br
+.ti -1c
+.RI "void \fBsetObjectiveTypes\fP (std::vector< std::string > &objTypes)"
+.br
+.RI "Sets the objective types\&. "
+.ti -1c
+.RI "void \fBsetDirections\fP (std::vector< std::string > &theDirections)"
+.br
+.RI "Sets the directions of the objective functions\&. "
+.ti -1c
+.RI "void \fBsetOptimal\fP (bool itsOptimal)"
+.br
+.ti -1c
+.RI "void \fBsetCardinality\fP (int theCardinality)"
+.br
+.ti -1c
+.RI "void \fBsetPoints\fP (std::vector< std::vector< double >> &thePoints, std::vector< std::string > &pointTypes)"
+.br
+.ti -1c
+.RI "void \fBsetValidity\fP (bool isValid)"
+.br
+.RI "Sets the validity of the solution to either true or false\&. "
+.ti -1c
+.RI "void \fBsetComments\fP (std::string &comment)"
+.br
+.ti -1c
+.RI "void \fBsetCPU\fP (double executionTime, std::string &machineSpecs)"
+.br
+.ti -1c
+.RI "void \fBsetExtremeCardinality\fP (int extremeCardinality)"
+.br
+.ti -1c
+.RI "void \fBsetSupportedCardinality\fP (int supportedCardinality)"
+.br
+.ti -1c
+.RI "void \fBsetMisc\fP (std::string &theMISC)"
+.br
+.in -1c
+.SH "Member Function Documentation"
+.PP 
+.SS "bool converter::createResultsFile (const std::string & outputFile, const std::string & inputFile = \fC''\fP)"
+
+.PP
+Creates a results file\&. Creates a results file with the path 'outputFile'\&. The file is only created if all the required entries has been set using the setMethods\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIoutputFile\fP reference to a constant string\&. outputFile contains the path to the results file\&. If no file with that path exists a new file is created\&. If the file exists, it will be overwritten! 
+.br
+\fIinputFile\fP reference to a constant string\&. inputFile contains the path to the file you want to read from (this functionality is not yet implemented)\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+If the putput file is succesfully created the function returns true, otherwise false (an exception/runtime error will be thrown) 
+.RE
+.PP
+
+.SS "void converter::setCardinality (int theCardinality)\fC [inline]\fP"
+Sets the cardinality of the non--dominated frontier 
+.PP
+\fBParameters:\fP
+.RS 4
+\fItheCardinality\fP integer specifying the number of points on the efficient frontier\&. 
+.RE
+.PP
+
+.SS "void converter::setComments (std::string & comment)\fC [inline]\fP"
+Sets the comments entry 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcomment\fP reference to a string\&. Contains the comment that should be attached to the result file\&. 
+.RE
+.PP
+
+.SS "void converter::setContributionName (const std::string & contName)\fC [inline]\fP"
+
+.PP
+Sets the name of the contribution\&. Sets the contribution name\&. It should be a string with the name of the contribution in which the instances and results have been published\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIconstName\fP const reference to a string\&. Contains the name of the constribution, e\&.g\&. 'Pedersen08'\&. 
+.RE
+.PP
+
+.SS "void converter::setCPU (double executionTime, std::string & machineSpecs)"
+Sets the CPU information along with the specs of the machine the experiments was carried out on\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIexecutionTime\fP double containing the number of seconds used to compute the efficient frontier 
+.br
+\fImachineSpecs\fP reference to a string containing the specifics of the machine used to carry out the experiments, e\&.g\&. 'Intel Core i7-4785T 2\&.2 GHz, 16 GB RAM, Linux Ubuntu 64bit' 
+.RE
+.PP
+
+.SS "void converter::setDirections (std::vector< std::string > & theDirections)"
+
+.PP
+Sets the directions of the objective functions\&. Sets the directions of the objective functions\&. The directions can either be 'min' or 'max'\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fItheDirections\fP reference to a vector of strings\&. If forexample there are three objective functions where the two first are of the minimization-kind and the last is a maximization, we should specify a vector { 'min' , 'min' , 'max' } as the function argument\&. 
+.RE
+.PP
+
+.SS "void converter::setExtremeCardinality (int extremeCardinality)\fC [inline]\fP"
+Sets the cardinality of the set of extreme supported non--dominated solutions 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIextremeCardinality\fP integer containing the number of extreme supported non--dominated solutions\&. 
+.RE
+.PP
+
+.SS "void converter::setInstanceName (std::string & theInstanceName)\fC [inline]\fP"
+Set the name of the instance for which the result file contains information 
+.PP
+\fBParameters:\fP
+.RS 4
+\fItheInstanceName\fP reference to a string containing the name of the instance for which the results are for\&. 
+.RE
+.PP
+
+.SS "void converter::setMisc (std::string & theMISC)\fC [inline]\fP"
+Sets the misc entry 
+.PP
+\fBParameters:\fP
+.RS 4
+\fItheMISC\fP reference to a string containing the misc that should be attached to the result file 
+.RE
+.PP
+\fBNote:\fP
+.RS 4
+This entry may be used as you like\&. It could e\&.g\&. contain an object with more detailed entries about the experiment\&. 
+.RE
+.PP
+
+.SS "void converter::setObjectives (int numOfObjectives)\fC [inline]\fP"
+Sets the number of objectives 
+.PP
+\fBParameters:\fP
+.RS 4
+\fInumOfObjectives\fP integer specififying the number of objective functions of the multiobjective optimization problem\&. 
+.RE
+.PP
+
+.SS "void converter::setObjectiveTypes (std::vector< std::string > & objTypes)"
+
+.PP
+Sets the objective types\&. Sets the objective types to either int, float, or null (if unknown)\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIobjTypes\fP vector of strings containing the type of each objective\&. That is if the i'th objective is integral, then objType[i] = 'int' 
+.RE
+.PP
+\fBNote:\fP
+.RS 4
+The function setObjectives must be called before setObjectiveTypes\&. Otherwise a runtime error is thrown\&. 
+.RE
+.PP
+
+.SS "void converter::setOptimal (bool itsOptimal)\fC [inline]\fP"
+Specifies whether the solution is an optimal solution to the specific instance or not\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIitsOptimal\fP boolean\&. If itsOptimal = true, it is assumed that the solutions is optimal solution, and if itsOptimal = false, it has not been verified optimal, or it is known to be suboptimal 
+.RE
+.PP
+
+.SS "void converter::setPoints (std::vector< std::vector< double >> & thePoints, std::vector< std::string > & pointTypes)"
+Sets the points and the point types
+.PP
+\fBParameters:\fP
+.RS 4
+\fIthePoints\fP reference to a vector of vectors of doubles\&. thePoints[i] contains the i'th point on the frontier and thePoints[i][j] contains the j'th entry of the i'th non--dominated point\&. 
+.br
+\fIpointTypes\fP reference to a vector of strings\&. Contains a specification of the type of each point\&. type can be either extreme supported ('se'), non-extreme supported ('sne'), supported (my be extreme or non--extreme) ('s'), unsuported ('un') or if this information is unknown ('null')\&. 
+.RE
+.PP
+
+.SS "void converter::setSupportedCardinality (int supportedCardinality)\fC [inline]\fP"
+Sets the cardinality of the set of supported non--dominated solutions 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsupportedCardinality\fP integer containing the number of supported non--dominated solutions\&. 
+.RE
+.PP
+
+.SS "void converter::setValidity (bool isValid)\fC [inline]\fP"
+
+.PP
+Sets the validity of the solution to either true or false\&. Sets the validity of the solution to either true or false\&. If isValid is false, the solution might be in conflict with another solution on MOrepo\&. This will be sorted out eventually 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIisValid\fP boolean\&. If true, the solution is not in conflict with other known solutions\&. If false, it is in conflict with a known solution\&. 
+.RE
+.PP
+
+.SS "void converter::setVersion (const std::string & versionNumber)\fC [inline]\fP"
+
+.PP
+Set the version of the resultfile\&. Sets the version fo the results file using the provided string 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIversionNumber\fP reference to a constant string\&. If the version is 5\&.4 the input should be a string '5\&.4' 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for MOrepo converter from the source code\&.
